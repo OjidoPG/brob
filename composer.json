@@ -1,0 +1,10 @@
+{
+    "name": "girau/brob",
+    "authors": [
+        {
+            "name": "Pascal",
+            "email": "giraud.pascal@outlook.com"
+        }
+    ],
+    "require": {}
+}
