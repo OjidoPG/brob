@@ -1,8 +1,6 @@
 <?php
 
-use Phalcon\Mvc\Model;
-
-class Emplacements extends Model
+class Emplacements extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -34,6 +32,12 @@ class Emplacements extends Model
      * @var integer
      */
     protected $paye;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $occupe;
 
     /**
      * Method to set the value of field id
@@ -101,6 +105,19 @@ class Emplacements extends Model
     }
 
     /**
+     * Method to set the value of field occupe
+     *
+     * @param integer $occupe
+     * @return $this
+     */
+    public function setOccupe($occupe)
+    {
+        $this->occupe = $occupe;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -148,6 +165,16 @@ class Emplacements extends Model
     public function getPaye()
     {
         return $this->paye;
+    }
+
+    /**
+     * Returns the value of field occupe
+     *
+     * @return integer
+     */
+    public function getOccupe()
+    {
+        return $this->occupe;
     }
 
     /**

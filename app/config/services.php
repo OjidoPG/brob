@@ -24,6 +24,11 @@ $di->setShared('url', function () {
     return $url;
 });
 
+$di->setShared('router', function (){
+    $router = new Router(false);
+    return $router;
+});
+
 /**
  * Database connection is created based in the parameters defined in the configuration file
  */
