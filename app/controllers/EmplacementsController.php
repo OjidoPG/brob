@@ -11,7 +11,7 @@ class EmplacementsController extends Controller
      */
     public function getEmplacementsAction()
     {
-        $emplacementsDisponibles = Emplacements::find("occupe = 0 ");
+        $emplacementsDisponibles = Emplacements::find();
         return json_encode($emplacementsDisponibles);
     }
 

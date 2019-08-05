@@ -1,5 +1,6 @@
 <?php
 
+use Phalcon\Mvc\Router;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
@@ -19,7 +20,7 @@ $di->setShared('url', function () {
     $config = $this->getConfig();
 
     $url = new UrlResolver();
-    $url->setBaseUri($config->application->baseUri);
+    //$url->setBaseUri($config->application->baseUri);
 
     return $url;
 });

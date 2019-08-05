@@ -16,14 +16,14 @@ try {
     $di = new FactoryDefault();
 
     /**
-     * Handle routes
-     */
-    include APP_PATH . '/config/router.php';
-
-    /**
      * Read services
      */
     include APP_PATH . '/config/services.php';
+
+    /**
+     * Handle routes
+     */
+    include APP_PATH . '/config/router.php';
 
     /**
      * Get config service for use in inline setup below
@@ -39,6 +39,11 @@ try {
      * Handle the request
      */
     $application = new Application($di);
+
+    /**
+     * On supprime l'utilisation des vues, nous n'en avons pas besoin pour ce projet
+     */
+    $application->useImplicitView(false);
 
     echo $application->handle()->getContent();
 
