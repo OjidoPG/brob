@@ -35,10 +35,8 @@ try {
      */
     include APP_PATH . '/config/loader.php';
 
-    /**
-     * Handle the request
-     */
-    $application = new Application($di);
+    $application = new \Phalcon\Mvc\Application($di);
+    $application->useImplicitView(false);
 
     echo $application->handle()->getContent();
 

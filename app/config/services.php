@@ -3,7 +3,6 @@
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
-use Phalcon\Flash\Direct as Flash;
 
 /**
  * Shared configuration service
@@ -19,7 +18,6 @@ $di->setShared('url', function () {
     $config = $this->getConfig();
 
     $url = new UrlResolver();
-    $url->setBaseUri($config->application->baseUri);
 
     return $url;
 });
@@ -54,18 +52,6 @@ $di->setShared('db', function () {
  */
 $di->setShared('modelsMetadata', function () {
     return new MetaDataAdapter();
-});
-
-/**
- * Register the session flash service with the Twitter Bootstrap classes
- */
-$di->set('flash', function () {
-    return new Flash([
-        'error'   => 'alert alert-danger',
-        'success' => 'alert alert-success',
-        'notice'  => 'alert alert-info',
-        'warning' => 'alert alert-warning'
-    ]);
 });
 
 /**

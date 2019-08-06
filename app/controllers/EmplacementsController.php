@@ -5,10 +5,10 @@ use Phalcon\Mvc\Controller;
 class EmplacementsController extends Controller
 {
 
-    public function indexAction()
+    public function getEmplacementsAction()
     {
-
+        $listeEmplacements = Emplacements::find();
+        return json_encode($listeEmplacements);
     }
-
 }
 
