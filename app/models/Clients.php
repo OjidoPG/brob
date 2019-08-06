@@ -1,8 +1,6 @@
 <?php
 
-use Phalcon\Mvc\Model;
-
-class Clients extends Model
+class Clients extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -58,12 +56,6 @@ class Clients extends Model
      * @var integer
      */
     protected $emplacements_id;
-
-    /**
-     *
-     * @var integer
-     */
-    protected $administrateurs_id;
 
     /**
      * Method to set the value of field id
@@ -183,19 +175,6 @@ class Clients extends Model
     }
 
     /**
-     * Method to set the value of field administrateurs_id
-     *
-     * @param integer $administrateurs_id
-     * @return $this
-     */
-    public function setAdministrateursId($administrateurs_id)
-    {
-        $this->administrateurs_id = $administrateurs_id;
-
-        return $this;
-    }
-
-    /**
      * Returns the value of field id
      *
      * @return integer
@@ -286,23 +265,13 @@ class Clients extends Model
     }
 
     /**
-     * Returns the value of field administrateurs_id
-     *
-     * @return integer
-     */
-    public function getAdministrateursId()
-    {
-        return $this->administrateurs_id;
-    }
-
-    /**
      * Initialize method for model.
      */
     public function initialize()
     {
         $this->setSchema("brocante");
         $this->setSource("clients");
-        $this->belongsTo('administrateurs_id', 'Administrateurs', 'id', ['alias' => 'Administrateurs']);
+        $this->hasMany('id', 'Administrateurs', 'clients_id', ['alias' => 'Administrateurs']);
         $this->belongsTo('emplacements_id', 'Emplacements', 'id', ['alias' => 'Emplacements']);
     }
 

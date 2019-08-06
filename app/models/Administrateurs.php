@@ -1,10 +1,6 @@
 <?php
 
-use Phalcon\Mvc\Model;
-use Phalcon\Mvc\Model\ResultInterface;
-use Phalcon\Mvc\Model\ResultSetInterface;
-
-class Administrateurs extends Model
+class Administrateurs extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -12,12 +8,6 @@ class Administrateurs extends Model
      * @var integer
      */
     protected $id;
-
-    /**
-     *
-     * @var integer
-     */
-    protected $ok;
 
     /**
      *
@@ -32,6 +22,12 @@ class Administrateurs extends Model
     protected $mdp;
 
     /**
+     *
+     * @var integer
+     */
+    protected $clients_id;
+
+    /**
      * Method to set the value of field id
      *
      * @param integer $id
@@ -40,19 +36,6 @@ class Administrateurs extends Model
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field ok
-     *
-     * @param integer $ok
-     * @return $this
-     */
-    public function setOk($ok)
-    {
-        $this->ok = $ok;
 
         return $this;
     }
@@ -84,6 +67,19 @@ class Administrateurs extends Model
     }
 
     /**
+     * Method to set the value of field clients_id
+     *
+     * @param integer $clients_id
+     * @return $this
+     */
+    public function setClientsId($clients_id)
+    {
+        $this->clients_id = $clients_id;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -91,16 +87,6 @@ class Administrateurs extends Model
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Returns the value of field ok
-     *
-     * @return integer
-     */
-    public function getOk()
-    {
-        return $this->ok;
     }
 
     /**
@@ -124,13 +110,23 @@ class Administrateurs extends Model
     }
 
     /**
+     * Returns the value of field clients_id
+     *
+     * @return integer
+     */
+    public function getClientsId()
+    {
+        return $this->clients_id;
+    }
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
     {
         $this->setSchema("brocante");
         $this->setSource("administrateurs");
-        $this->hasMany('id', 'Clients', 'administrateurs_id', ['alias' => 'Clients']);
+        $this->belongsTo('clients_id', 'Clients', 'id', ['alias' => 'Clients']);
     }
 
     /**
@@ -147,7 +143,7 @@ class Administrateurs extends Model
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Administrateurs[]|Administrateurs|ResultSetInterface
+     * @return Administrateurs[]|Administrateurs|\Phalcon\Mvc\Model\ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -158,7 +154,7 @@ class Administrateurs extends Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Administrateurs|ResultInterface
+     * @return Administrateurs|\Phalcon\Mvc\Model\ResultInterface
      */
     public static function findFirst($parameters = null)
     {
