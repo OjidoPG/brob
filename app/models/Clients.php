@@ -1,5 +1,8 @@
 <?php
 
+use Phalcon\Mvc\Model\ResultInterface;
+use Phalcon\Mvc\Model\ResultSetInterface;
+
 class Clients extends \Phalcon\Mvc\Model
 {
 
@@ -289,7 +292,7 @@ class Clients extends \Phalcon\Mvc\Model
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Clients[]|Clients|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return Clients[]|Clients|ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -300,11 +303,100 @@ class Clients extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Clients|\Phalcon\Mvc\Model\ResultInterface
+     * @return Clients|ResultInterface
      */
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
     }
 
+    /**
+     * @return mixed
+     */
+    protected function beforeSave()
+    {
+        $validation = new Validation();
+        $validation->add(
+            'nom',
+            new Uniqueness(
+                [
+                    "message" => "Vous êtes déjà enregistré",
+                    "type" => "Uniqueness",
+                    "model" => $this,
+                ]
+            )
+        );
+        $validation->add(
+            'emplacements_id',
+            new Regex(
+                [
+                    "pattern" =>"/^[1-9]+[0-9]?$/",
+                    "message" => "Vous n'avez pas choisi d'emplacement",
+                ]
+            )
+        );
+        $validation->add(
+            'nom',
+            new Alpha(
+                [
+                    "message" => "Ne peut contenir que des lettres",
+                ]
+            )
+        );
+        $validation->add(
+            'prenom',
+            new Alpha(
+                [
+                    "message" => "Ne peut contenir que des lettres",
+                ]
+            )
+        );
+        $validation->add(
+            'ville',
+            new Alpha(
+                [
+                    "message" => "Ne peut contenir que des lettres",
+                ]
+            )
+        );
+        $validation->add(
+            'telephone',
+            new Regex(
+                [
+                    "pattern" => "/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/",
+                    "message" => "Numéro de téléphone non valide",
+                ]
+            )
+        );
+        $validation->add(
+            'mail',
+            new Email(
+                [
+                    "message" => "Email non valide",
+                ]
+            )
+        );
+        $validation->add(
+            'codepostal',
+            new Regex(
+                [
+                    "pattern" => "/^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/",
+                    "message" => "Code postal non valide"
+                ]
+            )
+        );
+        return $this->validate($validation);
+    }
+    /**
+     * @return bool
+     */
+    protected function afterSave()
+    {
+        $emplacement = Emplacements::findFirst("idemplacements = " . $this->getEmplacementsId());
+        $emplacement->setOccupe(1);
+        if (!$emplacement->save()) {
+            return false;
+        }
+        return true;
+    }
 }
