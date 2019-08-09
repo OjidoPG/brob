@@ -6,9 +6,7 @@
             "email": "giraud.pascal@outlook.com"
         }
     ],
-    "require": {
-        "phalcon/incubator": "^3.4"
-    },
+    "require": {},
     "require-dev": {
         "phalcon/ide-stubs": "^3.4"
     }

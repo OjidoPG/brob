@@ -3,6 +3,12 @@
 use Phalcon\Mvc\Model;
 use Phalcon\Mvc\Model\ResultInterface;
 use Phalcon\Mvc\Model\ResultSetInterface;
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Alpha;
+use Phalcon\Validation\Validator\Email;
+use Phalcon\Validation\Validator\PresenceOf;
+use Phalcon\Validation\Validator\Regex;
+use Phalcon\Validation\Validator\Uniqueness;
 
 class Clients extends Model
 {
@@ -393,7 +399,7 @@ class Clients extends Model
      */
     protected function afterSave()
     {
-        $emplacement = Emplacements::findFirst("idemplacements = " . $this->getEmplacementsId());
+        $emplacement = Emplacements::findFirst("emplacements_id = " . $this->getEmplacementsId());
         $emplacement->setOccupe(1);
         if (!$emplacement->save()) {
             return false;

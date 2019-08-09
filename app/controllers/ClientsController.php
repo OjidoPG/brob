@@ -21,12 +21,12 @@ class ClientsController extends ControllerBase
         $client = new Clients;
         $client->setNom($this->request->getPost('nom', Filter::FILTER_TRIM, null));
         $client->setPrenom($this->request->getPost('prenom', Filter::FILTER_TRIM, null));
-        $client->setTelephone($_POST['telephone']);
-        $client->setMail($_POST['mail']);
-        $client->setAdresse($_POST['adresse']);
-        $client->setCodepostal($_POST['codepostal']);
-        $client->setVille($_POST['ville']);
-        $client->setEmplacementsId($_POST['emplacements_id']);
+        $client->setTelephone($this->request->getPost('telephone', Filter::FILTER_INT, null));
+        $client->setMail($this->request->getPost('mail', Filter::FILTER_EMAIL, null));
+        $client->setAdresse($this->request->getPost('adresse', Filter::FILTER_TRIM, null));
+        $client->setCodepostal($this->request->getPost('codepostal', Filter::FILTER_INT, null));
+        $client->setVille($this->request->getPost('ville', Filter::FILTER_TRIM, null));
+        $client->setEmplacementsId($this->request->getPost('emplacements_id', Filter::FILTER_INT, null));
 
         if (!$client->save()) {
             $messages = $client->getMessages();
