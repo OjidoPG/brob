@@ -1,14 +1,14 @@
 <?php
 
-use Phalcon\Mvc\Controller;
-
-class EmplacementsController extends Controller
+class EmplacementsController extends ControllerBase
 {
 
     public function getEmplacementsAction()
     {
         $listeEmplacements = Emplacements::find("occupe = 0");
-        return json_encode($listeEmplacements);
+        return $this->response([
+            'liste' => $listeEmplacements
+        ]);
     }
 }
 

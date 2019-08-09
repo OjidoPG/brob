@@ -1,9 +1,10 @@
 <?php
 
+use Phalcon\Mvc\Model;
 use Phalcon\Mvc\Model\ResultInterface;
 use Phalcon\Mvc\Model\ResultSetInterface;
 
-class Clients extends \Phalcon\Mvc\Model
+class Clients extends Model
 {
 
     /**
