@@ -7,6 +7,10 @@ use Phalcon\Mvc\Controller;
 class ClientsController extends ControllerBase
 {
 
+    /**
+     * Renvoi la liste des emplacements disponibles
+     * @return false|string
+     */
     public function getClientsAction()
     {
         return $this->response([
@@ -14,6 +18,10 @@ class ClientsController extends ControllerBase
         ]);
     }
 
+    /**
+     * Vérifie, enregistre ou refuse l'inscripion d'un nouveau brocanteur
+     * @return false|string
+     */
     public function postClientsAction()
     {
         $messagesRetour = [];

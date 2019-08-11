@@ -27,10 +27,10 @@ $router->addGet(
 );
 
 $router->addPost(
-    '/api/postAdmin',
+    '/api/postAdmins',
     [
         'controller' => 'administrateurs',
-        'action' => 'postadmin'
+        'action' => 'postAdmins'
     ]
 );
 

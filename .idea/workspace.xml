@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf289e49-88c0-408b-89e7-6b0c48dd26d4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/girau.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brofu/src/layouts/AdminLayout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../brofu/src/views/Administration.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Administrateurs.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Clients.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Clients.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AdministrateursController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdministrateursController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ClientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ClientsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brofu/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../brofu/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brofu/src/components/AdministrateursModale.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../brofu/src/components/AdministrateursModale.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../brofu/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../brofu/src/router.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,67 +25,71 @@
       <executable />
     </execution>
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/../brofu/src/components/Formulaire.vue">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="3213">
+                    <caret line="189" column="13" selection-start-line="187" selection-start-column="12" selection-end-line="189" selection-end-column="13" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/app/models/Clients.php">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="680">
+                    <caret line="421" column="47" selection-start-line="421" selection-start-column="47" selection-end-line="421" selection-end-column="47" />
+                    <folding>
+                      <element signature="e#7#29#0#PHP" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../brofu/src/components/Formulaire.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../brofu/src/components/SnackBar.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../brofu/src/components/AdministrateursModale.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="13" selection-start-line="37" selection-start-column="12" selection-end-line="40" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../brofu/src/components/Layouts/NavbarComponent.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
-              <folding>
-                <element signature="e#915#921#0" expanded="true" />
-                <element signature="e#921#927#0" expanded="true" />
-                <element signature="e#1071#1077#0" expanded="true" />
-                <element signature="e#1451#1520#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ClientsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+            <state relative-caret-position="263">
+              <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/Clients.php">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AdministrateursController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="421" column="47" selection-start-line="421" selection-start-column="47" selection-end-line="421" selection-end-column="47" />
-              <folding>
-                <element signature="e#7#29#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/loader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -86,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Administrateurs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+            <state relative-caret-position="1377">
+              <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -126,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/config/router.php" />
         <option value="$PROJECT_DIR$/app/config/loader.php" />
         <option value="$PROJECT_DIR$/app/models/Emplacements.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
@@ -138,11 +148,18 @@
         <option value="$PROJECT_DIR$/../brofu/src/layouts/SnackBarLayout.vue" />
         <option value="$PROJECT_DIR$/../brofu/src/main.js" />
         <option value="$PROJECT_DIR$/../brofu/src/components/Layouts/NavbarComponent.vue" />
-        <option value="$PROJECT_DIR$/app/controllers/ClientsController.php" />
         <option value="$PROJECT_DIR$/../brofu/src/components/SnackBar.vue" />
         <option value="$PROJECT_DIR$/../brofu/src/components/Formulaire.vue" />
         <option value="$PROJECT_DIR$/app/models/Administrateurs.php" />
         <option value="$PROJECT_DIR$/app/models/Clients.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ClientsController.php" />
+        <option value="$PROJECT_DIR$/../brofu/src/router.js" />
+        <option value="$PROJECT_DIR$/app/config/router.php" />
+        <option value="$PROJECT_DIR$/../brofu/src/components/AdministrateursModale.vue" />
+        <option value="$PROJECT_DIR$/../brofu/src/App.vue" />
+        <option value="$PROJECT_DIR$/../brofu/src/layouts/AdminLayout.vue" />
+        <option value="$PROJECT_DIR$/../brofu/src/views/Administration.vue" />
+        <option value="$PROJECT_DIR$/app/controllers/AdministrateursController.php" />
       </list>
     </option>
   </component>
@@ -166,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,6 +199,12 @@
               <item name="brob" type="b2602c69:ProjectViewProjectNode" />
               <item name="brob" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="brob" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brob" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -190,6 +212,11 @@
               <item name="brob" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="brob" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brob" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="brob" type="b2602c69:ProjectViewProjectNode" />
@@ -215,12 +242,26 @@
               <item name="brob" type="b2602c69:ProjectViewProjectNode" />
               <item name="brofu" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="brob" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brofu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="brob" type="b2602c69:ProjectViewProjectNode" />
+              <item name="brofu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,19 +320,23 @@
       <workItem from="1565548110306" duration="1775000" />
       <workItem from="1565549948462" duration="1561000" />
       <workItem from="1565551760889" duration="180000" />
-      <workItem from="1565557118107" duration="940000" />
+      <workItem from="1565557118107" duration="1777000" />
+      <workItem from="1565558922674" duration="1785000" />
+      <workItem from="1565560732265" duration="1787000" />
+      <workItem from="1565562547738" duration="1823000" />
+      <workItem from="1565564401301" duration="437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29058000" />
+    <option name="totallyTimeSpent" value="35727000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.496208" visible="true" weight="0.31236672" />
-      <window_info id="Structure" order="1" sideWeight="0.503792" side_tool="true" visible="true" weight="0.31236672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4951246" visible="true" weight="0.23773988" />
+      <window_info id="Structure" order="1" sideWeight="0.5048754" side_tool="true" weight="0.32249466" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -328,13 +373,6 @@
     <entry file="file://$USER_HOME$/Desktop/brocanteback/public/index.php" />
     <entry file="file://$USER_HOME$/Desktop/brocanteback/app/config/config.php" />
     <entry file="file://$USER_HOME$/Desktop/brocanteback/app/config/loader.php" />
-    <entry file="file://$PROJECT_DIR$/app/config/loader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/brocanteback/app/config/router.php" />
     <entry file="file://$USER_HOME$/Desktop/brocanteback/app/config/services.php" />
     <entry file="file://$USER_HOME$/Desktop/brocanteback/.htrouter.php" />
@@ -362,20 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -386,32 +410,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../brofu/src/views/Accueil.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../brofu/src/layouts/AccueilLayout.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../brofu/src/views/Inscription.vue">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ControllerBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../brofu/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -437,10 +437,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../brofu/src/components/Formulaire.vue">
+    <entry file="file://$PROJECT_DIR$/../brofu/src/components/Layouts/FooterComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+        <state relative-caret-position="629">
+          <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -451,17 +451,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../brofu/src/components/AdministrateursModale.vue">
+    <entry file="file://$PROJECT_DIR$/../brofu/src/layouts/AccueilLayout.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="13" selection-start-line="37" selection-start-column="12" selection-end-line="40" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding>
+            <element signature="e#379#445#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../brofu/src/components/Layouts/NavbarComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+        <state relative-caret-position="51">
+          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
           <folding>
             <element signature="e#915#921#0" expanded="true" />
             <element signature="e#921#927#0" expanded="true" />
@@ -471,10 +474,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../brofu/src/views/Administration.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../brofu/src/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../brofu/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phalcon/ide-stubs/src/Phalcon/mvc/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-772">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ClientsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+        <state relative-caret-position="93">
+          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/loader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Administrateurs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -485,20 +547,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Administrateurs.php">
+    <entry file="file://$PROJECT_DIR$/../brofu/src/components/Formulaire.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        <state relative-caret-position="3213">
+          <caret line="189" column="13" selection-start-line="187" selection-start-column="12" selection-end-line="189" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Clients.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="680">
           <caret line="421" column="47" selection-start-line="421" selection-start-column="47" selection-end-line="421" selection-end-column="47" />
           <folding>
             <element signature="e#7#29#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../brofu/src/layouts/AdminLayout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../brofu/src/views/Accueil.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../brofu/src/components/AdministrateursModale.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ControllerBase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AdministrateursController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
         </state>
       </provider>
     </entry>

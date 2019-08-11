@@ -1,13 +1,38 @@
 <?php
 
-use Phalcon\Mvc\Controller;
+use Phalcon\Filter;
 
-class AdministrateursController extends Controller
+class AdministrateursController extends ControllerBase
 {
 
-    public function indexAction()
+    /**
+     * Vérifie, accepte ou refuse la connexion d'un administrateur enregistré
+     * @return mixed
+     */
+    public function postAdminsAction()
     {
+        $admin = Administrateurs::find(
+            [
+                "login" => $this->request->getPost('login', Filter::FILTER_TRIM),
+                "mdp" => md5($this->request->getPost('mdp', Filter::FILTER_TRIM))
+            ]
+        );
 
+        if ($admin) {
+            return $this->response([
+                'erreurs' => [
+                    'Type' => 'Erreur',
+                    'Message' => 'Vous n\'êtes pas enregistrés'
+                ]
+            ]);
+        }
+
+        return $this->response([
+            'success' => [
+                'Type' => 'Reussite',
+                'Message' => 'Vous êtes enregistrés'
+            ]
+        ]);
     }
 
 }
