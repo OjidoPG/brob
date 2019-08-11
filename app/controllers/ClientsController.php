@@ -2,6 +2,7 @@
 
 use Phalcon\Filter;
 use Phalcon\Http\Response\StatusCode;
+use Phalcon\Mvc\Controller;
 
 class ClientsController extends ControllerBase
 {
@@ -37,16 +38,16 @@ class ClientsController extends ControllerBase
                     "Type" => $message->getType(),
                 ]);
             }
-
             return $this->response([
                 'erreurs' => $messagesRetour
-            ], StatusCode::BAD_REQUEST);
+            ]);
         }
-
         return $this->response([
-            'Message' => 'Vous êtes bien enregistré',
-            'Field' => 'Reussite'
-        ], StatusCode::CREATED);
+            'success'=>[
+                'Type' => 'Reussite',
+                'Message' => 'Vous êtes bien enregistré'
+            ]
+        ]);
     }
 }
 

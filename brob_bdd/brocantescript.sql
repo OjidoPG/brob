@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `clients` (
   PRIMARY KEY (`id`,`emplacements_id`),
   KEY `fk_clients_emplacements1_idx` (`emplacements_id`),
   CONSTRAINT `fk_clients_emplacements1` FOREIGN KEY (`emplacements_id`) REFERENCES `emplacements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table brocante.clients : ~0 rows (environ)
+-- Listage des données de la table brocante.clients : ~11 rows (environ)
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 
@@ -61,27 +61,27 @@ CREATE TABLE IF NOT EXISTS `emplacements` (
   `numero` int(11) NOT NULL,
   `taille` varchar(45) NOT NULL,
   `prix` int(11) NOT NULL,
-  `paye` tinyint(4) NOT NULL,
-  `occupe` tinyint(4) NOT NULL,
+  `paye` tinyint(1) NOT NULL,
+  `occupe` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table brocante.emplacements : ~0 rows (environ)
+-- Listage des données de la table brocante.emplacements : ~21 rows (environ)
 /*!40000 ALTER TABLE `emplacements` DISABLE KEYS */;
 INSERT INTO `emplacements` (`id`, `numero`, `taille`, `prix`, `paye`, `occupe`) VALUES
-	(1, 1, 'petit', 10, 0, 0),
-	(2, 2, 'moyen', 20, 0, 0),
-	(3, 3, 'grand', 30, 0, 0),
-	(4, 4, 'petit', 10, 0, 0),
-	(5, 5, 'moyen', 20, 0, 0),
-	(6, 6, 'grand', 30, 0, 0),
-	(7, 7, 'petit', 10, 0, 0),
-	(8, 8, 'moyen', 20, 0, 0),
-	(9, 9, 'grand', 30, 0, 0),
-	(10, 10, 'petit', 10, 0, 0),
+	(1, 1, 'petit', 10, 0, 1),
+	(2, 2, 'moyen', 20, 0, 1),
+	(3, 3, 'grand', 30, 0, 1),
+	(4, 4, 'petit', 10, 0, 1),
+	(5, 5, 'moyen', 20, 0, 1),
+	(6, 6, 'grand', 30, 0, 1),
+	(7, 7, 'petit', 10, 0, 1),
+	(8, 8, 'moyen', 20, 0, 1),
+	(9, 9, 'grand', 30, 0, 1),
+	(10, 10, 'petit', 10, 0, 1),
 	(11, 11, 'moyen', 20, 0, 0),
-	(12, 12, 'grand', 30, 0, 0),
-	(13, 13, 'petit', 10, 0, 0),
+	(12, 12, 'grand', 30, 0, 1),
+	(13, 13, 'petit', 10, 0, 1),
 	(14, 14, 'moyen', 20, 0, 0),
 	(15, 15, 'grand', 30, 0, 0),
 	(16, 16, 'petit', 10, 0, 0),

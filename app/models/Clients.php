@@ -324,7 +324,7 @@ class Clients extends Model
     {
         $validation = new Validation();
         $validation->add(
-            'nom',
+            'telephone',
             new Uniqueness(
                 [
                     "message" => "Vous êtes déjà enregistré",
@@ -399,7 +399,7 @@ class Clients extends Model
      */
     protected function afterSave()
     {
-        $emplacement = Emplacements::findFirst("emplacements_id = " . $this->getEmplacementsId());
+        $emplacement = Emplacements::findFirst("id = " . $this->getEmplacementsId());
         $emplacement->setOccupe(1);
         if (!$emplacement->save()) {
             return false;
