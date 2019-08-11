@@ -6,13 +6,13 @@ use Phalcon\Mvc\Model\ResultSetInterface;
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Alpha;
 use Phalcon\Validation\Validator\Email;
-use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Regex;
 use Phalcon\Validation\Validator\Uniqueness;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Clients extends Model
 {
+    const ADMIN_DEFAULT_PHONE = "0650128110";
 
     /**
      *
@@ -282,7 +282,6 @@ class Clients extends Model
     {
         $this->setSchema("brocante");
         $this->setSource("clients");
-        $this->hasMany('id', 'Administrateurs', 'clients_id', ['alias' => 'Administrateurs']);
         $this->belongsTo('emplacements_id', 'Emplacements', 'id', ['alias' => 'Emplacements']);
     }
 
@@ -397,7 +396,7 @@ class Clients extends Model
     }
 
     /**
-     * @return bool
+     * @return void
      */
     protected function afterSave()
     {
@@ -420,11 +419,12 @@ class Clients extends Model
     }
 
     /**
-     * Envoi un mail à l'administrateur
+     * Envoi un mail à tous les administrateurs
      */
     protected function envoiMail()
     {
-        $admin = Clients::findFirst('emplacements_id = 1');
+        $adminDefault = Administrateurs::findFirst('telephone = '.self::ADMIN_DEFAULT_PHONE);
+        $adminListe = Administrateurs::find();
         $mail = new PHPMailer();
 
         try {
@@ -432,14 +432,13 @@ class Clients extends Model
             $mail->isSMTP();
             $mail->Host = 'SMTP.office365.com';
             $mail->SMTPAuth = true;
-            $mail->Username = $admin->getMail();
+            $mail->Username = $adminDefault->getMail();
             $mail->Password = 'mPiGc7r4o';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
             $mail->CharSet = 'UTF-8';
-            $mail->setFrom($admin->getMail());
-            $mail->addAddress($admin->getMail());
+            $mail->setFrom($adminDefault->getMail());
             $mail->isHTML(true);
             $mail->Subject = 'Inscription à la brocante enregistrée';
             $mail->Body = "<u>Une inscription vient d'être enregistrée </u><br><br>
@@ -448,7 +447,11 @@ class Clients extends Model
                             telephone : <b>" . $this->getTelephone() . "</b><br>
                             email : <b>" . $this->getMail()."</b>";
 
-            $mail->send();
+            foreach ($adminListe as $admin){
+                $mail->addAddress($admin->getMail());
+                $mail->send();
+            }
+
         } catch (Exception $e) {
             echo "Message non envoyé. Erreur : {$mail->ErrorInfo}";
         }
