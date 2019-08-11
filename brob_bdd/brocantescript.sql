@@ -31,6 +31,8 @@ CREATE TABLE IF NOT EXISTS `administrateurs` (
 
 -- Listage des données de la table brocante.administrateurs : ~0 rows (environ)
 /*!40000 ALTER TABLE `administrateurs` DISABLE KEYS */;
+INSERT INTO `administrateurs` (`id`, `login`, `mdp`, `clients_id`) VALUES
+	(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 21);
 /*!40000 ALTER TABLE `administrateurs` ENABLE KEYS */;
 
 -- Listage de la structure de la table brocante. clients
@@ -48,10 +50,12 @@ CREATE TABLE IF NOT EXISTS `clients` (
   PRIMARY KEY (`id`,`emplacements_id`),
   KEY `fk_clients_emplacements1_idx` (`emplacements_id`),
   CONSTRAINT `fk_clients_emplacements1` FOREIGN KEY (`emplacements_id`) REFERENCES `emplacements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table brocante.clients : ~2 rows (environ)
+-- Listage des données de la table brocante.clients : ~0 rows (environ)
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+INSERT INTO `clients` (`id`, `nom`, `prenom`, `telephone`, `mail`, `adresse`, `codepostal`, `ville`, `emplacements_id`) VALUES
+	(21, 'GIRAUD', 'Pascal', '0650128110', 'giraud.pascal@outlook.com', '10 rue du rabodeau', 54320, 'MAXEVILLE', 1);
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 
 -- Listage de la structure de la table brocante. emplacements
@@ -69,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `emplacements` (
 -- Listage des données de la table brocante.emplacements : ~21 rows (environ)
 /*!40000 ALTER TABLE `emplacements` DISABLE KEYS */;
 INSERT INTO `emplacements` (`id`, `numero`, `taille`, `prix`, `paye`, `occupe`) VALUES
-	(1, 1, 'petit', 10, 0, 0),
+	(1, 0, 'admin', 0, 0, 1),
 	(2, 2, 'moyen', 20, 0, 0),
 	(3, 3, 'grand', 30, 0, 0),
 	(4, 4, 'petit', 10, 0, 0),

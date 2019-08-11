@@ -9,6 +9,7 @@ use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Regex;
 use Phalcon\Validation\Validator\Uniqueness;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Clients extends Model
 {
@@ -337,7 +338,7 @@ class Clients extends Model
             'emplacements_id',
             new Regex(
                 [
-                    "pattern" =>"/^[1-9]+[0-9]?$/",
+                    "pattern" => "/^[1-9]+[0-9]?$/",
                     "message" => "Vous n'avez pas choisi d'emplacement",
                 ]
             )
@@ -394,10 +395,21 @@ class Clients extends Model
         );
         return $this->validate($validation);
     }
+
     /**
      * @return bool
      */
     protected function afterSave()
+    {
+        $this->ajoutEmplacement();
+        $this->envoiMail();
+    }
+
+    /**
+     * Ajoute l'emplamcement selectionné par le client
+     * @return bool
+     */
+    protected function ajoutEmplacement()
     {
         $emplacement = Emplacements::findFirst("id = " . $this->getEmplacementsId());
         $emplacement->setOccupe(1);
@@ -405,5 +417,40 @@ class Clients extends Model
             return false;
         }
         return true;
+    }
+
+    /**
+     * Envoi un mail à l'administrateur
+     */
+    protected function envoiMail()
+    {
+        $admin = Clients::findFirst('emplacements_id = 1');
+        $mail = new PHPMailer();
+
+        try {
+            $mail->SMTPDebug = 2;
+            $mail->isSMTP();
+            $mail->Host = 'SMTP.office365.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = $admin->getMail();
+            $mail->Password = 'mPiGc7r4o';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            $mail->CharSet = 'UTF-8';
+            $mail->setFrom($admin->getMail());
+            $mail->addAddress($admin->getMail());
+            $mail->isHTML(true);
+            $mail->Subject = 'Inscription à la brocante enregistrée';
+            $mail->Body = "<u>Une inscription vient d'être enregistrée </u><br><br>
+                            nom : <b>" . $this->getNom() . "</b><br>
+                            prenom : <b>" . $this->getPrenom() . "</b><br>
+                            telephone : <b>" . $this->getTelephone() . "</b><br>
+                            email : <b>" . $this->getMail()."</b>";
+
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Message non envoyé. Erreur : {$mail->ErrorInfo}";
+        }
     }
 }
