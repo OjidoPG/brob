@@ -11,27 +11,41 @@ class AdministrateursController extends ControllerBase
      */
     public function postAdminsAction()
     {
-        $admin = Administrateurs::findFirstByLogin($this->request->getPost('login', Filter::FILTER_TRIM));
+        $login = $this->request->getPost('login', Filter::FILTER_TRIM);
+        $mdp = $this->request->getPost('mdp', Filter::FILTER_TRIM);
+
+        /** @var Administrateurs $admin */
+        $admin = Administrateurs::findFirstByLogin($login);
 
         if ($admin) {
-            if ($admin->checkmdp($this->request->getPost('mdp', Filter::FILTER_TRIM))) {
+            if ($this->security->checkHash($mdp, $admin->getMdp())) {
                 return $this->response([
-                    'success' => [
+                    'Success' => [
                         'Type' => 'Reussite',
-                        'Message' => 'Vous êtes enregistrés'
+                        'Message' => 'Vous êtes enregistré'
+                    ]
+                ]);
+            }else{
+                return $this->response([
+                    'Incomplet' => [
+                        'Type' => 'Incomplet',
+                        'Message' => 'Login/Mot de passe invalide'
                     ]
                 ]);
             }
         }
 
         return $this->response([
-            'erreurs' => [
+            'Erreurs' => [
                 'Type' => 'Erreur',
-                'Message' => 'Vous n\'êtes pas enregistrés'
+                'Message' => 'Vous n\'êtes pas enregistré'
             ]
         ]);
     }
 
+    /**
+     * Méthode a utiliser avec postman pour générer un mot de passe valide
+     */
     public function genePassAction()
     {
         $this->security->hash($_POST['mdp']);

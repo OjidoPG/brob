@@ -295,12 +295,6 @@ class Administrateurs extends Model
         return $this->ville;
     }
 
-    public function checkmdp($mdp)
-    {
-        $security = $this->getDI()->get('security');
-        return $security->checkHash($mdp, $this->mdp);
-    }
-
     /**
      * Initialize method for model.
      */
