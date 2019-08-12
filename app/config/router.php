@@ -34,5 +34,13 @@ $router->addPost(
     ]
 );
 
+$router->addPost(
+    '/api/genePass',
+    [
+        'controller' => 'administrateurs',
+        'action' => 'genePass'
+    ]
+);
+
 $router->handle();
 
