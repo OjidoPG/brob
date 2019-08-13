@@ -47,14 +47,16 @@ class ClientsController extends ControllerBase
                 ]);
             }
             return $this->response([
-                'erreurs' => $messagesRetour
+                'Erreurs' => $messagesRetour
             ]);
         }
+
+        array_push($messagesRetour, [
+            'Type' => 'Reussite',
+            'Message' => 'Vous êtes bien enregistré'
+        ]);
         return $this->response([
-            'success'=>[
-                'Type' => 'Reussite',
-                'Message' => 'Vous êtes bien enregistré'
-            ]
+            'Success'=>$messagesRetour
         ]);
     }
 }

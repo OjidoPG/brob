@@ -423,11 +423,11 @@ class Clients extends Model
      */
     protected function envoiMail()
     {
-        $adminDefault = Administrateurs::findFirst('telephone = '.self::ADMIN_DEFAULT_PHONE);
-        $adminListe = Administrateurs::find();
-        $mail = new PHPMailer();
-
         try {
+            $adminDefault = Administrateurs::findFirst('telephone = ' . self::ADMIN_DEFAULT_PHONE);
+            $adminListe = Administrateurs::find();
+            $mail = new PHPMailer();
+
             $mail->SMTPDebug = 2;
             $mail->isSMTP();
             $mail->Host = 'SMTP.office365.com';
@@ -445,9 +445,9 @@ class Clients extends Model
                             nom : <b>" . $this->getNom() . "</b><br>
                             prenom : <b>" . $this->getPrenom() . "</b><br>
                             telephone : <b>" . $this->getTelephone() . "</b><br>
-                            email : <b>" . $this->getMail()."</b>";
+                            email : <b>" . $this->getMail() . "</b>";
 
-            foreach ($adminListe as $admin){
+            foreach ($adminListe as $admin) {
                 $mail->addAddress($admin->getMail());
                 $mail->send();
             }
