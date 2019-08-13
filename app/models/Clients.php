@@ -401,7 +401,7 @@ class Clients extends Model
     protected function afterSave()
     {
         $this->ajoutEmplacement();
-        $this->envoiMail();
+        //$this->envoiMail();
     }
 
     /**
