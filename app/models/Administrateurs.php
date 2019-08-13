@@ -1,6 +1,8 @@
 <?php
 
 use Phalcon\Mvc\Model;
+use Phalcon\Mvc\Model\ResultInterface;
+use Phalcon\Mvc\Model\ResultSetInterface;
 
 class Administrateurs extends Model
 {
@@ -318,7 +320,7 @@ class Administrateurs extends Model
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Administrateurs[]|Administrateurs|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return Administrateurs[]|Administrateurs|ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -329,7 +331,7 @@ class Administrateurs extends Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Administrateurs|\Phalcon\Mvc\Model\ResultInterface
+     * @return Administrateurs|ResultInterface
      */
     public static function findFirst($parameters = null)
     {
