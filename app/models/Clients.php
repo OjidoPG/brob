@@ -401,7 +401,7 @@ class Clients extends Model
     protected function afterSave()
     {
         $this->ajoutEmplacement();
-        //$this->envoiMail();
+        $this->envoiMail();
     }
 
     /**
@@ -424,6 +424,8 @@ class Clients extends Model
     protected function envoiMail()
     {
         try {
+            $config = $this->getDI('config');
+
             $adminDefault = Administrateurs::findFirst('telephone = ' . self::ADMIN_DEFAULT_PHONE);
             $adminListe = Administrateurs::find();
             $mail = new PHPMailer();
@@ -433,7 +435,7 @@ class Clients extends Model
             $mail->Host = 'SMTP.office365.com';
             $mail->SMTPAuth = true;
             $mail->Username = $adminDefault->getMail();
-            $mail->Password = 'mPiGc7r4o';
+            $mail->Password = $config['password'];
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
