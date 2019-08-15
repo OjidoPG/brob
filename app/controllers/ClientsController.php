@@ -1,8 +1,6 @@
 <?php
 
 use Phalcon\Filter;
-use Phalcon\Http\Response\StatusCode;
-use Phalcon\Mvc\Controller;
 
 class ClientsController extends ControllerBase
 {
