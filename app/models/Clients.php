@@ -401,7 +401,6 @@ class Clients extends Model
     protected function afterSave()
     {
         $this->ajoutEmplacement();
-        //$this->envoiMail();
     }
 
     /**
@@ -416,44 +415,5 @@ class Clients extends Model
             return false;
         }
         return true;
-    }
-
-    /**
-     * Envoi un mail à tous les administrateurs
-     */
-    protected function envoiMail()
-    {
-        try {
-            $adminDefault = Administrateurs::findFirst('telephone = ' . self::ADMIN_DEFAULT_PHONE);
-            $adminListe = Administrateurs::find();
-            $mail = new PHPMailer();
-
-            $mail->SMTPDebug = 2;
-            $mail->isSMTP();
-            $mail->Host = 'SMTP.office365.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = $adminDefault->getMail();
-            $mail->Password = 'mPiGc7r4o';
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
-
-            $mail->CharSet = 'UTF-8';
-            $mail->setFrom($adminDefault->getMail());
-            $mail->isHTML(true);
-            $mail->Subject = 'Inscription à la brocante enregistrée';
-            $mail->Body = "<u>Une inscription vient d'être enregistrée </u><br><br>
-                            nom : <b>" . $this->getNom() . "</b><br>
-                            prenom : <b>" . $this->getPrenom() . "</b><br>
-                            telephone : <b>" . $this->getTelephone() . "</b><br>
-                            email : <b>" . $this->getMail() . "</b>";
-
-            foreach ($adminListe as $admin) {
-                $mail->addAddress($admin->getMail());
-                $mail->send();
-            }
-
-        } catch (Exception $e) {
-            echo "Message non envoyé. Erreur : {$mail->ErrorInfo}";
-        }
     }
 }
