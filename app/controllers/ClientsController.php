@@ -11,8 +11,30 @@ class ClientsController extends ControllerBase
      */
     public function getClientsAction()
     {
+        $query = $this->modelsManager->createQuery(
+            "SELECT * FROM Clients as c
+            INNER JOIN Emplacements AS e
+            ON c.emplacements_id = e.id"
+        );
+
+        $query->execute();
+
+        /*
+                $clients = Clients::query()
+                    ->columns('Clients', 'e')
+                    ->join('Emplacements', 'e.id= Clients.emplacements_id','e', 'INNER')
+                    ->execute();
+
+
+        $clients = $this->modelsManager->createBuilder()
+            ->from('Clients')
+            ->join('Emplacements', 'Clients.emplacements_id=e.id', 'e', 'INNER')
+            ->getQuery()
+            ->execute();
+*/
+
         return $this->response([
-            'liste' => Clients::find()
+            'liste' => $query
         ]);
     }
 
@@ -54,7 +76,7 @@ class ClientsController extends ControllerBase
             'Message' => 'Vous êtes bien enregistré'
         ]);
         return $this->response([
-            'Success'=>$messagesRetour
+            'Success' => $messagesRetour
         ]);
     }
 }
