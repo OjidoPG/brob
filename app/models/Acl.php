@@ -10,7 +10,7 @@ use Phalcon\Acl\Resource;
  */
 class Acl extends ControllerBase
 {
-    public function getAcl()
+    public static function getAcl()
     {
         $acl = new AclList();
 
@@ -27,8 +27,8 @@ class Acl extends ControllerBase
             $adminResource,'postAdmins'
         );
 
-        $acl->allow('RoleAdministrateurs', 'Administrateurs','postAdmins');
-        $acl->deny('RoleClients', 'Administrateurs','postAdmins');
+//        $acl->allow('RoleAdministrateurs', 'Administrateurs','postAdmins');
+//        $acl->deny('RoleClients', 'Administrateurs','postAdmins');
 
     }
 }

@@ -16,25 +16,30 @@ class ControllerBase extends Controller
 
     public function beforeExecuteRoute(Dispatcher $dispatcher)
     {
-        $controllerName = $dispatcher->getControllerName();
-        $actionName = $dispatcher->getActionName();
-        $identity = $this->auth->getIdentity();
+//        $controllerName = $dispatcher->getControllerName();
+//        $actionName = $dispatcher->getActionName();
+//        $identity = $this->auth->getIdentity();
+//
+//        if (!$this->acl->isAllowed($identity['profile'], $controllerName, $actionName)) {
+//            $this->flash->notice('You don\'t have access to this module: ' . $controllerName . ':' . $actionName);
+//            if ($this->acl->isAllowed($identity['profile'], $controllerName, 'index')) {
+//                $dispatcher->forward([
+//                    'controller' => $controllerName,
+//                    'action' => 'index'
+//                ]);
+//            } else {
+//                $dispatcher->forward([
+//                    'controller' => 'user_control',
+//                    'action' => 'index'
+//                ]);
+//            }
+//            return false;
+//        }
 
-        if (!$this->acl->isAllowed($identity['profile'], $controllerName, $actionName)) {
-            $this->flash->notice('You don\'t have access to this module: ' . $controllerName . ':' . $actionName);
-            if ($this->acl->isAllowed($identity['profile'], $controllerName, 'index')) {
-                $dispatcher->forward([
-                    'controller' => $controllerName,
-                    'action' => 'index'
-                ]);
-            } else {
-                $dispatcher->forward([
-                    'controller' => 'user_control',
-                    'action' => 'index'
-                ]);
-            }
-            return false;
-        }
+        $acl = Acl::getAcl();
+
+        $acl->allow('RoleAdministrateurs', 'Administrateurs','postAdmins');
+        $acl->deny('RoleClients', 'Administrateurs','postAdmins');
     }
 
     public function afterExecuteRoute()
