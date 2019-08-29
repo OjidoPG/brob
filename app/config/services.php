@@ -46,18 +46,6 @@ $di->setShared('db', function () {
     return $connection;
 });
 
-$di->set('session', function () {
-    $session = new SessionAdapter();
-    $session->start();
-    return $session;
-});
-
-$di->set('dispatcher', function () {
-    $dispatcher = new Dispatcher();
-    $dispatcher->setDefaultNamespace('brob\Controllers');
-    return $dispatcher;
-});
-
 /**
  * If the configuration specify the use of metadata adapter use it or use memory otherwise
  */
