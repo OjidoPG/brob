@@ -184,7 +184,7 @@ class Emplacements extends \Phalcon\Mvc\Model
     {
         $this->setSchema("brocante");
         $this->setSource("emplacements");
-        $this->hasMany('id', 'Clients', 'emplacements_id', ['alias' => 'Clients']);
+        $this->hasOne('id', 'Clients', 'emplacements_id', ['alias' => 'Clients']);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 use Phalcon\Mvc\Model;
 use Phalcon\Mvc\Model\ResultInterface;
+use Phalcon\Mvc\Model\Resultset\Simple;
 use Phalcon\Mvc\Model\ResultSetInterface;
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Alpha;
@@ -10,8 +11,15 @@ use Phalcon\Validation\Validator\Regex;
 use Phalcon\Validation\Validator\Uniqueness;
 use PHPMailer\PHPMailer\PHPMailer;
 
+/**
+ * Class Clients
+ *
+ * @property Simple|Emplacements[] $emplacements
+ * @method Simple|Emplacements[] getEmplacements($parameters = null)
+ */
 class Clients extends Model
 {
+
     const ADMIN_DEFAULT_PHONE = "0650128110";
 
     /**

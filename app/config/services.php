@@ -1,5 +1,6 @@
 <?php
 
+use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
@@ -54,7 +55,7 @@ $di->set('session', function () {
 
 $di->set('dispatcher', function () {
     $dispatcher = new Dispatcher();
-    $dispatcher->setDefaultNamespace('brob\Controllers');
+    //$dispatcher->setDefaultNamespace('brob\Controllers');
     return $dispatcher;
 });
 
