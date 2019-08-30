@@ -18,4 +18,13 @@ class ControllerBase extends Controller
     {
         $this->response->setContentType($this->contentType, 'UTF-8');
     }
+
+//    public function beforeExecuteRoute(){
+//        $this->session->set('id', 1);
+//        $this->session->destroy();
+//        if ($this->session->has('id')){
+//            return true;
+//        }
+//        return false;
+//    }
 }
