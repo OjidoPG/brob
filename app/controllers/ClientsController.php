@@ -11,9 +11,16 @@ class ClientsController extends ControllerBase
      */
     public function getClientsAction()
     {
-        //$results = $this->modelsManager->executeQuery('SELECT Clients.*, Emplacements.* FROM Clients INNER JOIN Emplacements');
+        $liste = [];
+        foreach (Clients::find() as $client) {
+            array_push($liste, array_merge($client->toArray(),
+                [
+                    'emplacements' => $client->getEmplacements()
+                ]
+            ));
+        }
         return $this->response([
-            'liste' => Clients::find()
+            'liste' => $liste
         ]);
     }
 
