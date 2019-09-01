@@ -232,7 +232,7 @@ class Emplacements extends \Phalcon\Mvc\Model
         foreach (Emplacements::find("occupe = 0") as $emplacement) {
             array_push($result,
                 [
-                    "Emplacement numéro : " . $emplacement->getNumero() . " - taille : " . $emplacement->getTaille() . " - prix : " . $emplacement->getPrix() . " euros"
+                    "Numéro : " . $emplacement->getNumero() . " - taille : " . $emplacement->getTaille() . " - prix : " . $emplacement->getPrix() . " euros"
                 ]
             );
         }
