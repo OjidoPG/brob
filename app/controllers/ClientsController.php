@@ -11,17 +11,45 @@ class ClientsController extends ControllerBase
      */
     public function getClientsAction()
     {
+//        $liste = [];
+//        foreach (Clients::find() as $client) {
+//            array_push($liste, array_merge($client->toArray(),
+//                [
+//                    'emplacements' => $client->getEmplacements()
+//                ]
+//            ));
+//        }
+//        return $this->response([
+//            'liste' => $liste
+//        ]);
+
+        return $this->response(
+            [
+                'liste' => Clients::find()
+            ]
+        );
+    }
+
+    /**
+     * @return false|string
+     */
+    public function getAllClientsAction(){
         $liste = [];
-        foreach (Clients::find() as $client) {
+        $clientListe = Clients::find();
+        foreach ($clientListe as $client)
+        {
             array_push($liste, array_merge($client->toArray(),
                 [
-                    'emplacements' => $client->getEmplacements()
+                    'emplacement' => Emplacements::getEmplacementClientToString($client)
                 ]
             ));
         }
-        return $this->response([
-            'liste' => $liste
-        ]);
+
+        return $this->response(
+            [
+                'liste' => $liste
+            ]
+        );
     }
 
     /**

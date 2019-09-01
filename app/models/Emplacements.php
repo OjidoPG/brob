@@ -1,5 +1,8 @@
 <?php
 
+use Phalcon\Mvc\Model\ResultInterface;
+use Phalcon\Mvc\Model\ResultSetInterface;
+
 class Emplacements extends \Phalcon\Mvc\Model
 {
 
@@ -201,7 +204,7 @@ class Emplacements extends \Phalcon\Mvc\Model
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Emplacements[]|Emplacements|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return Emplacements[]|Emplacements|ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -212,11 +215,38 @@ class Emplacements extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Emplacements|\Phalcon\Mvc\Model\ResultInterface
+     * @return Emplacements|ResultInterface
      */
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
     }
 
+    /**
+     * Retourne un string contenant la liste des emplacments non occupés
+     * @return array
+     */
+    public static function getEmplacementsNonOccupeToString()
+    {
+        $result = [];
+        foreach (Emplacements::find("occupe = 0") as $emplacement) {
+            array_push($result,
+                [
+                    "Emplacement numéro : " . $emplacement->getNumero() . " - taille : " . $emplacement->getTaille() . " - prix : " . $emplacement->getPrix() . " euros"
+                ]
+            );
+        }
+        return $result;
+    }
+
+    /**
+     * Retourne un string contenant les informations de l'emplacement d'un client
+     * @param $client
+     * @return string
+     */
+    public static function getEmplacementClientToString($client)
+    {
+        $emplacement = Emplacements::findFirst($client->getEmplacementsId());
+        return "Numéro : " . $emplacement->getNumero() . " - taille : " . $emplacement->getTaille() . " - prix : " . $emplacement->getPrix() . " euros";
+    }
 }

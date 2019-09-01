@@ -10,6 +10,14 @@ $router->addGet(
     ]
 );
 
+$router->addGet(
+    '/api/getAllClients',
+    [
+        'controller' => 'clients',
+        'action' => 'getAllClients'
+    ]
+);
+
 $router->addPost(
     '/api/postClients',
     [
