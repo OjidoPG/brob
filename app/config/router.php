@@ -27,10 +27,10 @@ $router->addPost(
 );
 
 $router->addGet(
-    '/api/getEmplacements',
+    '/api/getEmplacementsNonOccupe',
     [
         'controller' => 'emplacements',
-        'action' => 'getEmplacements'
+        'action' => 'getEmplacementsNonOccupe'
     ]
 );
 
