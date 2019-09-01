@@ -59,7 +59,6 @@ class ClientsController extends ControllerBase
     public function postClientsAction()
     {
         $messagesRetour = [];
-
         /** @var Clients $client */
         $client = new Clients;
         $client->setNom($this->request->getPost('nom', Filter::FILTER_TRIM, null));
