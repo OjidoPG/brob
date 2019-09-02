@@ -13,8 +13,8 @@ return new Config([
     'database' => [
         'adapter' => 'Mysql',
         'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
+        'username' => '********',
+        'password' => '*********',
         'dbname' => 'brocante',
         'charset' => 'utf8',
     ],
@@ -32,7 +32,7 @@ return new Config([
     // https://randomkeygen.com/
     'JWT' => [
         'algorithme' => 'HS256',
-        'key' => 'Pxk52hz58SL4OHWWnvbGnsMgM5yG7fA4',
+        'key' => '***********',
         'cert' => null,
     ]
 ]);

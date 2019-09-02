@@ -4,6 +4,7 @@ use Phalcon\Filter;
 
 class AdministrateursController extends ControllerBase
 {
+    protected $checkAuth = false;
 
     /**
      * Vérifie, accepte ou refuse la connexion d'un administrateur enregistré
@@ -22,7 +23,8 @@ class AdministrateursController extends ControllerBase
                 return $this->response([
                     'Success' => [
                         'Type' => 'Reussite',
-                        'Message' => 'Vous êtes enregistré'
+                        'Message' => 'Vous êtes enregistré',
+                        'JWT' => JWTUtils::encodeJWT($admin)
                     ]
                 ]);
             }else{

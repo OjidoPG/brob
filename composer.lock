@@ -4,8 +4,123 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91d3a046d8d9839dcfb51c93bc224631",
+    "content-hash": "a605b7c74eae064617e4e03557fcd066",
     "packages": [
+        {
+            "name": "firebase/php-jwt",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": " 4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2017-06-27T22:17:23+00:00"
+        },
+        {
+            "name": "phalcon/incubator",
+            "version": "v3.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phalcon/incubator.git",
+                "reference": "8efbaa0602b2c5ff595e5436786765878f739ee6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phalcon/incubator/zipball/8efbaa0602b2c5ff595e5436786765878f739ee6",
+                "reference": "8efbaa0602b2c5ff595e5436786765878f739ee6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-phalcon": "~3.3",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "codeception/aerospike-module": "^1.0",
+                "codeception/codeception": "^2.5",
+                "codeception/mockery-module": "0.2.2",
+                "codeception/specify": "^0.4",
+                "codeception/verify": "^0.3",
+                "doctrine/instantiator": "1.0.5",
+                "phalcon/dd": "^1.1",
+                "phpdocumentor/reflection-docblock": "2.0.4",
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^2.9",
+                "vlucas/phpdotenv": "^2.4"
+            },
+            "suggest": {
+                "duncan3dc/fork-helper": "To use extended class to access the beanstalk queue service",
+                "ext-aerospike": "*",
+                "phalcon/ide-stubs": "Phalcon IDE Stubs",
+                "sergeyklay/aerospike-php-stubs": "The most complete Aerospike PHP stubs which allows autocomplete in modern IDEs",
+                "swiftmailer/swiftmailer": "~5.2",
+                "twig/twig": "~1.35|~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phalcon\\": "Library/Phalcon/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Phalcon Team",
+                    "email": "team@phalconphp.com",
+                    "homepage": "https://phalconphp.com/en/team"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/phalcon/incubator/graphs/contributors"
+                }
+            ],
+            "description": "Adapters, prototypes or functionality that can be potentially incorporated to the C-framework.",
+            "homepage": "https://phalconphp.com",
+            "keywords": [
+                "framework",
+                "incubator",
+                "phalcon"
+            ],
+            "time": "2019-08-19T11:47:35+00:00"
+        },
         {
             "name": "phpmailer/phpmailer",
             "version": "v6.0.7",
@@ -121,75 +236,6 @@
                 "stubs"
             ],
             "time": "2018-12-09T14:11:06+00:00"
-        },
-        {
-            "name": "phalcon/incubator",
-            "version": "v3.4.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phalcon/incubator.git",
-                "reference": "08ab1a938d8160a2f0d1df535822ecc86e85220e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phalcon/incubator/zipball/08ab1a938d8160a2f0d1df535822ecc86e85220e",
-                "reference": "08ab1a938d8160a2f0d1df535822ecc86e85220e",
-                "shasum": ""
-            },
-            "require": {
-                "ext-phalcon": "~3.3",
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "codeception/aerospike-module": "^1.0",
-                "codeception/codeception": "^2.5",
-                "codeception/mockery-module": "0.2.2",
-                "codeception/specify": "^0.4",
-                "codeception/verify": "^0.3",
-                "doctrine/instantiator": "1.0.5",
-                "phalcon/dd": "^1.1",
-                "phpdocumentor/reflection-docblock": "2.0.4",
-                "phpunit/phpunit": "^4.8",
-                "squizlabs/php_codesniffer": "^2.9",
-                "vlucas/phpdotenv": "^2.4"
-            },
-            "suggest": {
-                "duncan3dc/fork-helper": "To use extended class to access the beanstalk queue service",
-                "ext-aerospike": "*",
-                "phalcon/ide-stubs": "Phalcon IDE Stubs",
-                "sergeyklay/aerospike-php-stubs": "The most complete Aerospike PHP stubs which allows autocomplete in modern IDEs",
-                "swiftmailer/swiftmailer": "~5.2",
-                "twig/twig": "~1.35|~2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Phalcon\\": "Library/Phalcon/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Phalcon Team",
-                    "email": "team@phalconphp.com",
-                    "homepage": "https://phalconphp.com/en/team"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/phalcon/incubator/graphs/contributors"
-                }
-            ],
-            "description": "Adapters, prototypes or functionality that can be potentially incorporated to the C-framework.",
-            "homepage": "https://phalconphp.com",
-            "keywords": [
-                "framework",
-                "incubator",
-                "phalcon"
-            ],
-            "time": "2019-06-07T09:00:02+00:00"
         }
     ],
     "aliases": [],
@@ -198,7 +244,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-gmp": "*"
     },
     "platform-dev": []
 }

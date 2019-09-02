@@ -1,16 +1,19 @@
 {
-    "name": "girau/brob",
-    "authors": [
-        {
-            "name": "Pascal",
-            "email": "giraud.pascal@outlook.com"
-        }
-    ],
-    "require": {
-      "ext-json": "*",
-        "phpmailer/phpmailer": "^6.0"
-    },
-    "require-dev": {
-        "phalcon/ide-stubs": "^3.4"
+  "name": "girau/brob",
+  "authors": [
+    {
+      "name": "Pascal",
+      "email": "giraud.pascal@outlook.com"
     }
+  ],
+  "require": {
+    "ext-json": "*",
+    "ext-gmp": "*",
+    "phpmailer/phpmailer": "^6.0",
+    "firebase/php-jwt": "^5.0",
+    "phalcon/incubator": "^3.4"
+  },
+  "require-dev": {
+    "phalcon/ide-stubs": "^3.4"
+  }
 }
