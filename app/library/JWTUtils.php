@@ -6,6 +6,11 @@ use Phalcon\Di;
 
 class JWTUtils
 {
+    /**
+     * Créé le token JWT
+     * @param Administrateurs $administrateurs
+     * @return string
+     */
     public static function encodeJWT(Administrateurs $administrateurs): string
     {
         $di = Di::getDefault();
@@ -21,6 +26,11 @@ class JWTUtils
         return JWT::encode($token, $JWTConfig->get('key'), $JWTConfig->get('algorithme'));
     }
 
+    /**
+     * Vérifie la validité du token JWT
+     * @param $token
+     * @return bool
+     */
     public static function verifToken($token): bool
     {
         $di = Di::getDefault();
@@ -36,6 +46,11 @@ class JWTUtils
         }
     }
 
+    /**
+     * Décrypte le token JWT
+     * @param $token
+     * @return array
+     */
     public static function decodeJWT($token): array
     {
         $di = Di::getDefault();
