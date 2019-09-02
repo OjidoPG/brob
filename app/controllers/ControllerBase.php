@@ -24,7 +24,6 @@ class ControllerBase extends Controller
     {
         if ($this->checkAuth) {
             $authorization = explode(' ', $this->request->getHeader('Authorization'));
-
             switch ($authorization[0]) {
                 case 'Bearer':
                     if (JWTUtils::verifToken($authorization[1])) {
