@@ -410,6 +410,4 @@ class Clients extends Model
     {
         Emplacements::ajoutEmplacement($this->getEmplacementsId(), $this->getId());
     }
-
-
 }
