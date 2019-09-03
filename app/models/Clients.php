@@ -402,12 +402,4 @@ class Clients extends Model
         );
         return $this->validate($validation);
     }
-
-    /**
-     * @return void
-     */
-    protected function afterSave()
-    {
-        Emplacements::ajoutEmplacement($this->getEmplacementsId(), $this->getId());
-    }
 }

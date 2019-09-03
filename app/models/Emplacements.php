@@ -242,10 +242,10 @@ class Emplacements extends \Phalcon\Mvc\Model
 
     /**
      * Retourne un string contenant les informations de l'emplacement d'un client
-     * @param $client
+     * @param Clients $client
      * @return string
      */
-    public static function getEmplacementClientToString($client)
+    public static function getEmplacementClientToString(Clients $client)
     {
         $emplacement = Emplacements::findFirstById($client->getEmplacementsId());
         return "Numéro : " . $emplacement->getNumero() . " - taille : " . $emplacement->getTaille() . " - prix : " . $emplacement->getPrix() . " euros";
@@ -253,23 +253,19 @@ class Emplacements extends \Phalcon\Mvc\Model
 
     /**
      * Ajoute l'emplamcement selectionné par le client et supprime l'ancien s'il en avait un
-     * @param $emplacementId
-     * @param $clientId
+     * @param $ancienEmplacementid
+     * @param $nouvelEmplacementId
      * @return void
      */
-    public static function ajoutEmplacement($emplacementId, $clientId)
+    public static function ajoutEmplacement($ancienEmplacementid, $nouvelEmplacementId)
     {
-        /** @var Clients $client */
-        $client = Clients::findFirstById($clientId);
-        /** @var Emplacements $ancienEmplacement */
-        $ancienEmplacement = Emplacements::findFirstById($client->getEmplacementsId());
-
-        if ($ancienEmplacement->occupe !== 0) {
+        if (Emplacements::findFirstById($ancienEmplacementid)) {
+            $ancienEmplacement = Emplacements::findFirstById($ancienEmplacementid);
             $ancienEmplacement->setOccupe(0);
             $ancienEmplacement->save();
         }
-        /** @var Emplacements $nouvelEmplacement */
-        $nouvelEmplacement = Emplacements::findFirstById($emplacementId);
+
+        $nouvelEmplacement = Emplacements::findFirstById($nouvelEmplacementId);
         $nouvelEmplacement->setOccupe(1);
         $nouvelEmplacement->save();
     }

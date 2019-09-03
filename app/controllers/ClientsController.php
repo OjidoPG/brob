@@ -59,11 +59,12 @@ class ClientsController extends ControllerBase
     public function postClientsAction()
     {
         $messagesRetour = [];
-        $existe = false;
+        $ancienEmplacementid = '';
 
         if (Clients::findFirstById($this->request->getPost('id'))) {
+            /** @var Clients $client */
             $client = Clients::findFirstById($this->request->getPost('id'));
-            $existe = true;
+            $ancienEmplacementid = $client->getEmplacementsId();
         } else {
             /** @var Clients $client */
             $client = new Clients;
@@ -78,23 +79,22 @@ class ClientsController extends ControllerBase
         $client->setVille($this->request->getPost('ville', Filter::FILTER_TRIM, null));
         $client->setEmplacementsId($this->request->getPost('emplacements_id', Filter::FILTER_INT, null));
 
-        if ($existe) {
-            $client->update();
-        } else {
-            if (!$client->save()) {
-                $messages = $client->getMessages();
-                foreach ($messages as $message) {
-                    array_push($messagesRetour, [
-                        'Field' => $message->getField(),
-                        'Message' => $message->getMessage(),
-                        "Type" => $message->getType(),
-                    ]);
-                }
-                return $this->response([
-                    'Erreurs' => $messagesRetour
+        $nouvelEmplacementId = $client->getEmplacementsId();
+
+        if (!$client->save()) {
+            $messages = $client->getMessages();
+            foreach ($messages as $message) {
+                array_push($messagesRetour, [
+                    'Field' => $message->getField(),
+                    'Message' => $message->getMessage(),
+                    "Type" => $message->getType(),
                 ]);
             }
-
+            return $this->response([
+                'Erreurs' => $messagesRetour
+            ]);
+        }else{
+            Emplacements::ajoutEmplacement($ancienEmplacementid, $nouvelEmplacementId);
             array_push($messagesRetour, [
                 'Type' => 'Reussite',
                 'Message' => 'Vous êtes bien enregistré'
