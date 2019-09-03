@@ -408,20 +408,8 @@ class Clients extends Model
      */
     protected function afterSave()
     {
-        $this->ajoutEmplacement();
+        Emplacements::ajoutEmplacement($this->getEmplacementsId(), $this->getId());
     }
 
-    /**
-     * Ajoute l'emplamcement selectionné par le client
-     * @return bool
-     */
-    protected function ajoutEmplacement()
-    {
-        $emplacement = Emplacements::findFirst("id = " . $this->getEmplacementsId());
-        $emplacement->setOccupe(1);
-        if (!$emplacement->save()) {
-            return false;
-        }
-        return true;
-    }
+
 }

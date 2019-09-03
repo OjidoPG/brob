@@ -1,54 +1,22 @@
 <?php
 
-$router = $di->getRouter();
+use Phalcon\Mvc\Router;
 
-$router->addGet(
-    '/api/getClients',
-    [
-        'controller' => 'clients',
-        'action' => 'getClients'
-    ]
-);
+//$router->add('/:controller', [
+//    'controller' => 1
+//]);
+//
+//$router->add('/:controller/:action', [
+//    'controller' => 1,
+//    'action' => 2
+//]);
+//
+//$router->add('/:controller/:action/:params', [
+//    'controller' => 1,
+//    'action' => 2,
+//    'params' => 3
+//]);
 
-$router->addGet(
-    '/api/getAllClients',
-    [
-        'controller' => 'clients',
-        'action' => 'getAllClients'
-    ]
-);
+$di->set('router', new Router);
 
-$router->addPost(
-    '/api/postClients',
-    [
-        'controller' => 'clients',
-        'action' => 'postClients'
-    ]
-);
-
-$router->addGet(
-    '/api/getEmplacementsNonOccupe',
-    [
-        'controller' => 'emplacements',
-        'action' => 'getEmplacementsNonOccupe'
-    ]
-);
-
-$router->addPost(
-    '/api/postAdmins',
-    [
-        'controller' => 'administrateurs',
-        'action' => 'postAdmins'
-    ]
-);
-
-$router->addPost(
-    '/api/genePass',
-    [
-        'controller' => 'administrateurs',
-        'action' => 'genePass'
-    ]
-);
-
-$router->handle();
 
