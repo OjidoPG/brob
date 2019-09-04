@@ -11,18 +11,6 @@ class ClientsController extends ControllerBase
      */
     public function getClientsAction()
     {
-//        $liste = [];
-//        foreach (Clients::find() as $client) {
-//            array_push($liste, array_merge($client->toArray(),
-//                [
-//                    'emplacements' => $client->getEmplacements()
-//                ]
-//            ));
-//        }
-//        return $this->response([
-//            'liste' => $liste
-//        ]);
-
         return $this->response(
             [
                 'liste' => Clients::find()
@@ -93,7 +81,7 @@ class ClientsController extends ControllerBase
             return $this->response([
                 'Erreurs' => $messagesRetour
             ]);
-        }else{
+        } else {
             Emplacements::ajoutEmplacement($ancienEmplacementid, $nouvelEmplacementId);
             array_push($messagesRetour, [
                 'Type' => 'Reussite',

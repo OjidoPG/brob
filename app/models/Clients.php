@@ -290,7 +290,7 @@ class Clients extends Model
     {
         $this->setSchema("brocante");
         $this->setSource("clients");
-        $this->belongsTo('emplacements_id', 'Emplacements', 'id', ['alias' => 'Emplacements']);
+//        $this->belongsTo('emplacements_id', 'Emplacements', 'id', ['alias' => 'Emplacements']);
     }
 
     /**

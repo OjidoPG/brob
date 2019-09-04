@@ -1,9 +1,10 @@
 <?php
 
+use Phalcon\Mvc\Model;
 use Phalcon\Mvc\Model\ResultInterface;
 use Phalcon\Mvc\Model\ResultSetInterface;
 
-class Emplacements extends \Phalcon\Mvc\Model
+class Emplacements extends Model
 {
 
     /**
@@ -187,7 +188,7 @@ class Emplacements extends \Phalcon\Mvc\Model
     {
         $this->setSchema("brocante");
         $this->setSource("emplacements");
-        $this->hasOne('id', 'Clients', 'emplacements_id', ['alias' => 'Clients']);
+//        $this->hasOne('id', 'Clients', 'emplacements_id', ['alias' => 'Clients']);
     }
 
     /**

@@ -6,7 +6,7 @@ use Phalcon\Mvc\Controller;
 
 class ControllerBase extends Controller
 {
-    protected $checkAuth = true;
+    protected $checkAuth = false;
     protected $contentType = 'application/json';
 
     public function response($response, $code = 200)
