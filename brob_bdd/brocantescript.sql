@@ -22,21 +22,21 @@ DROP TABLE IF EXISTS `administrateurs`;
 CREATE TABLE IF NOT EXISTS `administrateurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(45) NOT NULL,
-  `mdp` varchar(45) NOT NULL,
-  `nom` varchar(45) DEFAULT NULL,
-  `prenom` varchar(45) DEFAULT NULL,
-  `telephone` varchar(45) DEFAULT NULL,
-  `mail` varchar(45) DEFAULT NULL,
-  `adresse` varchar(45) DEFAULT NULL,
-  `codepostal` int(5) DEFAULT NULL,
-  `ville` varchar(45) DEFAULT NULL,
+  `mdp` varchar(250) NOT NULL,
+  `nom` varchar(45) NOT NULL,
+  `prenom` varchar(45) NOT NULL,
+  `telephone` varchar(45) NOT NULL,
+  `mail` varchar(45) NOT NULL,
+  `adresse` varchar(45) NOT NULL,
+  `codepostal` int(5) NOT NULL,
+  `ville` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Listage des données de la table brocante.administrateurs : ~1 rows (environ)
 /*!40000 ALTER TABLE `administrateurs` DISABLE KEYS */;
 INSERT INTO `administrateurs` (`id`, `login`, `mdp`, `nom`, `prenom`, `telephone`, `mail`, `adresse`, `codepostal`, `ville`) VALUES
-	(3, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'GIRAUD', 'Pascal', '0650128110', 'giraud.pascal@outlook.com', '10 rue du rabodeau', 54320, 'MAXEVILLE');
+	(4, 'admin', '$2y$08$YXZ5ZFZycFdVVXN0VHQ2NeFVEpRLhJVhg4ubOd7yVYKgrzOb.2yMu', 'GIRAUD', 'Pascal', '0650128110', 'giraud.pascal@outlook.com', '10 rue du rabodeau', 54320, 'MAXEVILLE');
 /*!40000 ALTER TABLE `administrateurs` ENABLE KEYS */;
 
 -- Listage de la structure de la table brocante. clients
@@ -50,13 +50,11 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `adresse` varchar(45) DEFAULT NULL,
   `codepostal` int(11) DEFAULT NULL,
   `ville` varchar(45) DEFAULT NULL,
-  `emplacements_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`emplacements_id`),
-  KEY `fk_clients_emplacements1_idx` (`emplacements_id`),
-  CONSTRAINT `fk_clients_emplacements1` FOREIGN KEY (`emplacements_id`) REFERENCES `emplacements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+  `emplacements_id` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table brocante.clients : ~1 rows (environ)
+-- Listage des données de la table brocante.clients : ~0 rows (environ)
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 
@@ -72,10 +70,10 @@ CREATE TABLE IF NOT EXISTS `emplacements` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
--- Listage des données de la table brocante.emplacements : ~21 rows (environ)
+-- Listage des données de la table brocante.emplacements : ~0 rows (environ)
 /*!40000 ALTER TABLE `emplacements` DISABLE KEYS */;
 INSERT INTO `emplacements` (`id`, `numero`, `taille`, `prix`, `paye`, `occupe`) VALUES
-	(1, 1, 'petit', 10, 0, 0),
+	(1, 1, 'moyen', 20, 0, 0),
 	(2, 2, 'moyen', 20, 0, 0),
 	(3, 3, 'grand', 30, 0, 0),
 	(4, 4, 'petit', 10, 0, 0),
