@@ -19,6 +19,7 @@ class ClientsController extends ControllerBase
     }
 
     /**
+     * Renvoi la liste de tous les clients
      * @return false|string
      */
     public function getAllClientsAction()
@@ -91,6 +92,32 @@ class ClientsController extends ControllerBase
                 'Success' => $messagesRetour
             ]);
         }
+    }
+
+    /**
+     * Supprime le client selectionné et met à jour son emplacement
+     */
+    public function postDeleteClientsAction()
+    {
+        $messagesRetour = [];
+        /** @var Clients $clientDelete */
+        $clientDelete = Clients::findFirstById($this->request->getPost('idClient'));
+        if ($clientDelete->delete()){
+            /** @var Emplacements $emplacementDelete */
+            $emplacementDelete = Emplacements::findFirstById($this->request->getPost('idEmplacement'));
+            $emplacementDelete->setOccupe(0);
+            $emplacementDelete->save();
+            array_push($messagesRetour, [
+                'Type' => 'Reussite',
+                'Message' => 'Le brocanteur a été supprimé'
+            ]);
+            return $this->response([
+                'Success' => $messagesRetour
+            ]);
+        }
+        return $this->response([
+            'Erreurs' => $messagesRetour
+        ]);
     }
 }
 
