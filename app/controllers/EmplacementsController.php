@@ -1,5 +1,7 @@
 <?php
 
+use Phalcon\Filter;
+
 class EmplacementsController extends ControllerBase
 {
     /**
@@ -28,8 +30,42 @@ class EmplacementsController extends ControllerBase
      * Enregistre un emplacement
      */
     public function postEmplacementsAction()
-    {
+    {       
+        $messagesRetour = [];
+        if(Emplacements::findFirstById($this->request->getPost('id'))){
+            /** @var Emplacements $emplacement */
+            $emplacement = Emplacements::findFirstById($this->request->getPost('id'));
+        }else{
+            /** @var Emplacements $emplacement */
+            $emplacement = new Emplacements;
+            $emplacement->setPaye(0);
+            $emplacement->setOccupe(0);
+        }        
 
+        $emplacement->setNumero($this->request->getPost('numero', Filter::FILTER_TRIM, null));
+        $emplacement->setTaille($this->request->getPost('taille', Filter::FILTER_TRIM, null));
+        $emplacement->setPrix($this->request->getPost('prix', Filter::FILTER_TRIM, null));
+
+
+        if(!$emplacement->save()){
+
+            die(var_dump($emplacement->getMessages()));
+            array_push($messagesRetour, [
+                'Field' => 'Erreur',
+                'Message' => 'Erreur lors de la modification de l\'emplacement',
+                'Type' => 'Erreur insertion'    
+            ]);
+            return $this->response([
+                'Erreurs' => $messagesRetour    
+            ]);
+        }
+        array_push($messagesRetour, [
+            'Type' => 'Reussite',
+            'Message' => 'L\'emplacement a bien été enregistré'
+        ]);
+        return $this->response([
+            'Success' => $messagesRetour
+        ]);
     }
 
     /**
