@@ -27,7 +27,8 @@ class EmplacementsController extends ControllerBase
     }
 
     /**
-     * Enregistre un emplacement
+     * Enregistre une emplacement
+     * @return false|string
      */
     public function postEmplacementsAction()
     {       
@@ -69,7 +70,7 @@ class EmplacementsController extends ControllerBase
     }
 
     /**
-     * Supprime l'emplacement séléctionné
+     * Supprime l'emplacement sélectionné
      * @return false|string
      */
     public function postDeleteEmplacementsAction(){
