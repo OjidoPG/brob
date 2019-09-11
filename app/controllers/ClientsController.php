@@ -42,6 +42,29 @@ class ClientsController extends ControllerBase
     }
 
     /**
+     * Renvoi la liste de tous les clients et de tous les emplacements
+     * @return false|string
+     */
+    public function getClientsEmplacementsAction()
+    {
+        $liste = [];
+        $clientListe = Clients::find();
+        foreach ($clientListe as $client) {
+            array_push($liste, array_merge($client->toArray(),
+                [
+                    'emplacement' => Emplacements::findFirstById($client->getEmplacementsId())
+                ]
+            ));
+        }
+
+        return $this->response(
+            [
+                'liste' => $liste
+            ]
+        );
+    }
+
+    /**
      * Vérifie, enregistre ou refuse l'inscripion d'un nouveau brocanteur
      * @return false|string
      */
