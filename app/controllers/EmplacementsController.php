@@ -103,7 +103,7 @@ class EmplacementsController extends ControllerBase
         if($emplacement->save()){
             array_push($messagesRetour, [
                 'Type' => 'Reussite',
-                'Message' => 'L\'emplacement a été modifié'
+                'Message' => 'Le statut de l\'emplacement a été modifié'
             ]);
             return $this->response([
                 'Success' => $messagesRetour
