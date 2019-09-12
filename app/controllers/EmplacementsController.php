@@ -90,4 +90,27 @@ class EmplacementsController extends ControllerBase
             'Erreurs' => $messagesRetour
         ]);
     }
+
+    public function postPayeEmplacementsAction(){
+        $paye = "0";
+        if($this->request->getPost('paye') === "oui"){
+            $paye = "1";
+        }        
+        $messagesRetour = [];
+        /** @var Emplacements $emplacement */
+        $emplacement = Emplacements::findFirstById($this->request->getPost('idEmplacement'));
+        $emplacement->setPaye($paye);
+        if($emplacement->save()){
+            array_push($messagesRetour, [
+                'Type' => 'Reussite',
+                'Message' => 'L\'emplacement a été modifié'
+            ]);
+            return $this->response([
+                'Success' => $messagesRetour
+            ]);
+        }
+        return $this->response([
+            'Erreurs' => $messagesRetour
+        ]);
+    }
 }
