@@ -4,7 +4,6 @@ use Phalcon\Filter;
 
 class ClientsController extends ControllerBase
 {
-
     /**
      * Renvoi la liste des emplacements disponibles
      * @return false|string
@@ -27,7 +26,8 @@ class ClientsController extends ControllerBase
         $liste = [];
         $clientListe = Clients::find();
         foreach ($clientListe as $client) {
-            array_push($liste, array_merge($client->toArray(),
+            array_push($liste, array_merge(
+                $client->toArray(),
                 [
                     'emplacement' => Emplacements::getEmplacementClientToString($client)
                 ]
@@ -50,7 +50,8 @@ class ClientsController extends ControllerBase
         $liste = [];
         $clientListe = Clients::find();
         foreach ($clientListe as $client) {
-            array_push($liste, array_merge($client->toArray(),
+            array_push($liste, array_merge(
+                $client->toArray(),
                 [
                     'emplacement' => Emplacements::findFirstById($client->getEmplacementsId())
                 ]
@@ -125,7 +126,7 @@ class ClientsController extends ControllerBase
         $messagesRetour = [];
         /** @var Clients $clientDelete */
         $clientDelete = Clients::findFirstById($this->request->getPost('idClient'));
-        if ($clientDelete->delete()){
+        if ($clientDelete->delete()) {
             /** @var Emplacements $emplacementDelete */
             $emplacementDelete = Emplacements::findFirstById($this->request->getPost('idEmplacement'));
             $emplacementDelete->setOccupe(0);
@@ -143,4 +144,3 @@ class ClientsController extends ControllerBase
         ]);
     }
 }
-
