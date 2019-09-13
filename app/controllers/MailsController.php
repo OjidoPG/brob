@@ -5,22 +5,48 @@ use PHPMailer\PHPMailer\Exception;
 
 class MailsController extends ControllerBase
 {
-
+    /**
+     * Gère la récupération des adresses et du message et lance la fonction d'envoi de mails
+     * @return false|string
+     * @throws Exception
+     */
     public function envoiMailsAction()
     {
         $mailTab = json_decode($this->request->getPost("mails"));
         $message = $this->request->getPost("message");
 
+        $messagesRetour = [];
+        $bool = true;
         foreach ($mailTab as $adresseMail) {
-            Mails::phpMailer($adresseMail, $message);
+            if (!$this->phpMailer($adresseMail, $message)){
+                $bool = false;
+            }
         }
+
+        if (!$bool) {
+            return $this->response([
+                'Erreurs' => $messagesRetour
+            ]);
+        }
+        array_push($messagesRetour, [
+            'Type' => 'Reussite',
+            'Message' => 'Les e-mails ont correctement été envoyés'
+        ]);
+        return $this->response([
+            'Success' => $messagesRetour
+        ]);
     }
 
+    /**
+     * Envoi les mails
+     * @param $adresseMail
+     * @param $message
+     * @return bool
+     * @throws Exception
+     */
     public function phpMailer($adresseMail, $message)
     {
         $mail = new PHPMailer(true);
-
-        $messagesRetour = [];
 
         //Server settings
         $mail->SMTPDebug = 2;
@@ -42,16 +68,8 @@ class MailsController extends ControllerBase
         $mail->AltBody = $message;
 
         if (!$mail->send()) {
-            return $this->response([
-                'Erreurs' => $messagesRetour
-            ]);
+            return false;
         }
-        array_push($messagesRetour, [
-            'Type' => 'Reussite',
-            'Message' => 'Le statut de l\'emplacement a été modifié'
-        ]);
-        return $this->response([
-            'Success' => $messagesRetour
-        ]);
+        return true;
     }
 }
