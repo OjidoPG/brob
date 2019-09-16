@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 class MailsController extends ControllerBase
 {
-    public function envoiMailsAction()
+        public function envoiMailsAction()
     {
         $mailTab = json_decode($this->request->getPost("mails"));
         $message = $this->request->getPost("message");
@@ -25,6 +25,7 @@ class MailsController extends ControllerBase
         return $this->response([
             'Success' => $messagesRetour
         ]);
+
     }
 
     public function mailerPHP($mailTab, $message)
