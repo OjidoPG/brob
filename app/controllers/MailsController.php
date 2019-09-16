@@ -5,53 +5,52 @@ use PHPMailer\PHPMailer\Exception;
 
 class MailsController extends ControllerBase
 {
-
     public function envoiMailsAction()
     {
         $mailTab = json_decode($this->request->getPost("mails"));
         $message = $this->request->getPost("message");
 
-        foreach ($mailTab as $adresseMail) {
-            Mails::phpMailer($adresseMail, $message);
-        }
-    }
+        $messagesRetour=[];
 
-    public function phpMailer($adresseMail, $message)
-    {
-        $mail = new PHPMailer(true);
-
-        $messagesRetour = [];
-
-        //Server settings
-        $mail->SMTPDebug = 2;
-        $mail->isSMTP();
-        $mail->Host       = self::SMTP_OUTLOOK_HOST;
-        $mail->SMTPAuth   = true;
-        $mail->Username   = self::SENDER;
-        $mail->Password   = self::MDP;
-        $mail->SMTPSecure = self::SMTP_SECURITE;
-        $mail->Port       = self::SMTP_PORT;
-
-        //Recipients
-        $mail->setFrom(self::SENDER);
-        $mail->addAddress($adresseMail);
-
-        // Content
-        $mail->isHTML(false);                                  // Set email format to HTML
-        $mail->Subject = self::SUJET;
-        $mail->AltBody = $message;
-
-        if (!$mail->send()) {
+        if (!$this->mailerPHP($mailTab, $message)) {
             return $this->response([
                 'Erreurs' => $messagesRetour
             ]);
         }
+
         array_push($messagesRetour, [
             'Type' => 'Reussite',
-            'Message' => 'Le statut de l\'emplacement a été modifié'
+            'Message' => 'Les mails ont bien été envoyés !'
         ]);
         return $this->response([
             'Success' => $messagesRetour
         ]);
+    }
+
+    public function mailerPHP($mailTab, $message)
+    {
+        $mail = new PHPMailer();
+        try {
+            //$mail->SMTPDebug = 2;
+            //$mail->isSMTP();  
+            $mail->Host = 'localhost';
+            //$mail->Username = null;
+            //$mail->Password = null;
+            //$mail->SMTPSecure = null;
+            $mail->Port = 1025;
+
+            $mail->setFrom('from@example.com', 'Mailer');
+
+            foreach($mailTab as $mails){
+                $mail->addAddress($mails);
+            }
+            $mail->Subject = 'Message administrateur de la brocante d\'Eulmont';
+            $mail->Body = $message;
+            $mail->send();
+
+            return true;
+        } catch (Exception $ex) {
+            return false;
+        }
     }
 }

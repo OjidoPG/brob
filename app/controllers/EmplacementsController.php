@@ -47,7 +47,6 @@ class EmplacementsController extends ControllerBase
         $emplacement->setTaille($this->request->getPost('taille', Filter::FILTER_TRIM, null));
         $emplacement->setPrix($this->request->getPost('prix', Filter::FILTER_TRIM, null));
 
-
         if(!$emplacement->save()){
 
             die(var_dump($emplacement->getMessages()));

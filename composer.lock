@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a605b7c74eae064617e4e03557fcd066",
+    "content-hash": "cc00f288ef04ebd26f93cbcbbc7c939f",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -54,20 +54,20 @@
         },
         {
             "name": "phalcon/incubator",
-            "version": "v3.4.5",
+            "version": "v3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phalcon/incubator.git",
-                "reference": "8efbaa0602b2c5ff595e5436786765878f739ee6"
+                "reference": "4883d9009a9d651308bfc201a0e9440c0ff692e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phalcon/incubator/zipball/8efbaa0602b2c5ff595e5436786765878f739ee6",
-                "reference": "8efbaa0602b2c5ff595e5436786765878f739ee6",
+                "url": "https://api.github.com/repos/phalcon/incubator/zipball/4883d9009a9d651308bfc201a0e9440c0ff692e2",
+                "reference": "4883d9009a9d651308bfc201a0e9440c0ff692e2",
                 "shasum": ""
             },
             "require": {
-                "ext-phalcon": "~3.3",
+                "ext-phalcon": "^3.3",
                 "php": ">=5.5"
             },
             "require-dev": {
@@ -119,7 +119,7 @@
                 "incubator",
                 "phalcon"
             ],
-            "time": "2019-08-19T11:47:35+00:00"
+            "time": "2019-09-16T13:54:24+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
