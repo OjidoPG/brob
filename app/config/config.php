@@ -12,8 +12,8 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 return new Config([
     'database' => [
         'adapter' => 'Mysql',
-        'host' => 'localhost',
-        'username' => 'root',
+        'host' => 'xxxxxx',
+        'username' => 'xxxxxx',
         'password' => '',
         'dbname' => 'brocante',
         'charset' => 'utf8',
@@ -32,7 +32,7 @@ return new Config([
     // https://randomkeygen.com/
     'JWT' => [
         'algorithme' => 'HS256',
-        'key' => 'Pxk52hz58SL4OHWWnvbGnsMgM5yG7fA4',
+        'key' => 'xxxxxxxx',
         'cert' => null,
     ]
 ]);
